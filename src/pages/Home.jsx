@@ -2,7 +2,7 @@ import React from "react";
 
 const Home = () => {
   return (
-    <div className="flex flex-wrap overflow-x-hidden py-10 px-20 max-w-screen h-screen bg-white text-green-500">
+    <div className="flex flex-wrap overflow-x-hidden py-10 px-10 max-w-screen h-screen bg-white text-green-500">
       <div className="w-[70%] ">
         <h1 className="text-xl">Welcome to FlavorFiesta</h1>
         <h1 className="font-[Open_Sans] tracking-wider text-black text-8xl mt-10 mb-10 ">

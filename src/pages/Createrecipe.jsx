@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { nanoid } from "nanoid";
+import { recipecontext } from "../context/RecipeContext";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Createrecipe = () => {
-  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
+  const { data, setData } = useContext(recipecontext);
+  const { register, handleSubmit, reset } = useForm();
 
-  const SubmitHandler = (data) => {
-    console.log(data);
+  const SubmitHandler = (recipe) => {
+    recipe.id = nanoid();
+
+    const copydata = [...data];
+    copydata.push(recipe);
+    setData(copydata);
+    //  setData([...data, recipe])
+
+    toast.success("New Recipe Created!");
+    reset();
+    navigate("/recipes");
   };
 
   return (
@@ -14,7 +29,7 @@ const Createrecipe = () => {
         <h1>hey</h1>
       </div>
 
-      <div className="w-[60%] h-[600px] px-20">
+      <div className="w-[60%] h-[600px] border-2 px-20">
         <h1 className="text-7xl mb-6">Create a Recipe</h1>
         <form onSubmit={handleSubmit(SubmitHandler)}>
           <input
@@ -35,7 +50,7 @@ const Createrecipe = () => {
             type="text"
             id="chef name"
             className="border-b border-green-400 outline-none p-2 w-full mb-4"
-            {...register("chefName")}
+            {...register("chef")}
             placeholder="Enter Chef Name title"
           />
           <select
@@ -43,31 +58,32 @@ const Createrecipe = () => {
             {...register("category")}
           >
             <option value="none">Select Category</option>
-            <option value="cat-1">Breakfast</option>
-            <option value="cat-2">Lunch</option>
-            <option value="cat-3">Drink</option>
-            <option value="cat-4">dessert</option>
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="dinner">Dinner</option>
+            <option value="drink">Drink</option>
+            <option value="dessert">dessert</option>
           </select>
 
           <textarea
             className="border-b border-green-400 outline-none p-2 w-full"
-            {...register("Description")}
+            {...register("desc")}
             placeholder=" Enter Description - Seperated by comma(,)"
           ></textarea>
 
           <textarea
             className="border-b border-green-400 outline-none p-2 w-full"
-            {...register("Ingredients")}
+            {...register("Ingr")}
             placeholder=" Enter Ingredients - Seperated by comma(,)"
           ></textarea>
 
           <textarea
             className="border-b border-green-400 outline-none p-2 w-full"
-            {...register("Instructions")}
+            {...register("Inst")}
             placeholder="Enter Instructions - Seperated by comma(,)"
           ></textarea>
 
-          <button className="mt-6 block px-4 py-2 bg-blue-700 rounded text-white active:scale-95">
+          <button className="mt-2 block px-4 py-2 bg-orange-700 rounded text-white active:scale-95">
             Create Recipe
           </button>
         </form>

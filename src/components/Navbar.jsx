@@ -20,6 +20,14 @@ const Navbar = () => {
           className={(e) =>
             e.isActive ? "text-lg text-green-300" : "text-green-500 text-lg"
           }
+          to="/recipes"
+        >
+          Recipes
+        </NavLink>
+        <NavLink
+          className={(e) =>
+            e.isActive ? "text-lg text-green-300" : "text-green-500 text-lg"
+          }
           to="/about"
         >
           About
