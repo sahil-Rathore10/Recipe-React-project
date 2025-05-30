@@ -62,7 +62,7 @@ const Createrecipe = () => {
             <option value="lunch">Lunch</option>
             <option value="dinner">Dinner</option>
             <option value="drink">Drink</option>
-            <option value="dessert">dessert</option>
+            <option value="dessert">Dessert</option>
           </select>
 
           <textarea
@@ -73,13 +73,13 @@ const Createrecipe = () => {
 
           <textarea
             className="border-b border-green-400 outline-none p-2 w-full"
-            {...register("Ingr")}
+            {...register("ingredients")}
             placeholder=" Enter Ingredients - Seperated by comma(,)"
           ></textarea>
 
           <textarea
             className="border-b border-green-400 outline-none p-2 w-full"
-            {...register("Inst")}
+            {...register("instructions")}
             placeholder="Enter Instructions - Seperated by comma(,)"
           ></textarea>
 
