@@ -40,6 +40,14 @@ const Navbar = () => {
         >
           Contact
         </NavLink>
+        <NavLink
+          className={(e) =>
+            e.isActive ? "text-lg text-green-300" : "text-green-500 text-lg"
+          }
+          to="/fav"
+        >
+          Favorite
+        </NavLink>
       </div>
       <NavLink
         to="/create-recipe"

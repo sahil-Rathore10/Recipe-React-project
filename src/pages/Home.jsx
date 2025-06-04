@@ -1,13 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const redirectToRecipe = () => {
+    navigate("/recipes");
+  };
   return (
     <div className="flex flex-wrap overflow-x-hidden py-10 px-10 max-w-screen h-screen bg-white text-green-500">
       <div className="w-[70%] ">
         <h1 className="text-xl">Welcome to FlavorFiesta</h1>
-        <h1 className="font-[Open_Sans] tracking-wider text-black text-8xl mt-10 mb-10 pl-8">
+        <h1 className="font-[Open_Sans] tracking-wider text-black text-8xl mt-10 mb-10 pl-16">
           Expl
-          <span className="inline-block border-3 border-green-500 rounded-full w-14 h-14 overflow-hidden">
+          <span className="inline-block border-4 border-green-500 rounded-full w-14 h-14 overflow-hidden">
             <img
               className="w-full h-full object-cover"
               src="https://media.istockphoto.com/id/901354116/photo/traditional-italian-pasta-alla-norma-with-eggplant-tomato-cheese-and-basil.jpg?s=612x612&w=0&k=20&c=SIZvs4HVWT0ICi9-nP8w9TUhj3U8EksujdLyNUVpCY8="
@@ -27,8 +33,11 @@ const Home = () => {
           us <br />
           Recipes
         </h1>
-        <button className=" ml-10 py-3 px-4 bg-green-900 rounded-full text-white">
-          All Recipes
+        <button
+          onClick={redirectToRecipe}
+          className=" ml-20 py-2 px-4 bg-green-900 rounded-full text-white active:scale-95 hover:bg-green-800"
+        >
+          All Recipes <i className="text-2xl ri-arrow-right-up-line"></i>
         </button>
       </div>
 

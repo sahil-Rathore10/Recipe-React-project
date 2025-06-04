@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { recipecontext } from "../context/RecipeContext";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -6,6 +6,9 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
 const Singlerecipe = () => {
+  const [favorite, setFavorite] = useState(
+    JSON.parse(localStorage.getItem("fav")) || []
+  );
   const { data, setData } = useContext(recipecontext);
   const navigate = useNavigate();
   const params = useParams();
@@ -41,9 +44,41 @@ const Singlerecipe = () => {
     navigate("/recipes");
   };
 
+  const FavHandler = () => {
+    const copyfav = [...favorite];
+    copyfav.push(recipe);
+    setFavorite(copyfav);
+    localStorage.setItem("fav", JSON.stringify(copyfav));
+  };
+
+  const UnFavHandler = () => {
+    const filterfav = favorite.filter((f) => f.id != recipe?.id);
+    setFavorite(filterfav);
+    localStorage.setItem("fav", JSON.stringify(filterfav));
+  };
+
+  // useEffect(() => {
+  //   console.log("Singlerecipe.jsx Mounted");
+
+  //   return () => {
+  //     console.log("Singlerecipe.jsx Mounted");
+  //   };
+  // }, []);
+
   return recipe ? (
     <div className="w-full flex p-6">
-      <div className="left w-1/2 p-10 flex-col justify-items-center">
+      <div className="relative left w-1/2 p-10 flex-col justify-items-center">
+        {favorite.find((f) => f.id == recipe?.id) ? (
+          <i
+            onClick={UnFavHandler}
+            className="absolute right-[5%] text-3xl text-yellow-400 ri-star-fill"
+          ></i>
+        ) : (
+          <i
+            onClick={FavHandler}
+            className="absolute right-[5%] text-3xl text-yellow-400 ri-star-line"
+          ></i>
+        )}
         <h1 className="text-4xl mb-2 font-bold text-black">{recipe.title}</h1>
         <img
           className="h-[30vh] w-[20vw] mb-2 rounded"
