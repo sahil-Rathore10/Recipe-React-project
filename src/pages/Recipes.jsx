@@ -10,7 +10,7 @@ const Recipes = () => {
   ));
 
   return (
-    <div className="flex flex-wrap gap-4 px-10 py-10 text-black">
+    <div className="flex flex-wrap px-10 py-10 text-black">
       {data.length > 0 ? (
         renderrecipes
       ) : (

@@ -12,27 +12,31 @@ const Singlerecipe = () => {
   const recipe = data.find((recipe) => params.id == recipe.id);
   const { register, handleSubmit, reset } = useForm({
     defaultValues: {
-      title: recipe.title,
-      chef: recipe.chef,
-      image: recipe.image,
-      category: recipe.category,
-      desc: recipe.desc,
-      ingredients: recipe.ingredients,
-      instructions: recipe.instructions,
+      title: recipe?.title,
+      chef: recipe?.chef,
+      image: recipe?.image,
+      category: recipe?.category,
+      desc: recipe?.desc,
+      ingredients: recipe?.ingredients,
+      instructions: recipe?.instructions,
     },
   });
 
-  const SubmitHandler = (recipe) => {
+  const UpdateHandler = (recipe) => {
     const index = data.findIndex((recipe) => params.id == recipe.id);
     const copydata = [...data];
     copydata[index] = { ...copydata[index], ...recipe };
+    localStorage.setItem("recipes", JSON.stringify(copydata));
+
     setData(copydata);
+
     toast.success("Recipe Updated!");
   };
 
   const DeleteHandler = () => {
     const filterdata = data.filter((r) => r.id != params.id);
     setData(filterdata);
+    localStorage.setItem("recipes", JSON.stringify(filterdata));
     toast.success("Recipe Delete!");
     navigate("/recipes");
   };
@@ -68,7 +72,7 @@ const Singlerecipe = () => {
         </p>
       </div>
       <div className="right border-2 text-black w-1/2 p-10">
-        <form onSubmit={handleSubmit(SubmitHandler)}>
+        <form onSubmit={handleSubmit(UpdateHandler)}>
           <label
             htmlFor="image"
             className="block font-semibold mb-1 text-gray-700"

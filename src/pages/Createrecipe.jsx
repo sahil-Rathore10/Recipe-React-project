@@ -17,6 +17,7 @@ const Createrecipe = () => {
     copydata.push(recipe);
     setData(copydata);
     //  setData([...data, recipe])
+    localStorage.setItem("recipes", JSON.stringify(copydata));
 
     toast.success("New Recipe Created!");
     reset();
@@ -25,36 +26,32 @@ const Createrecipe = () => {
 
   return (
     <div className="flex py-10 px-10 max-w-screen h-screen ">
-      <div className="w-[40%] bg-amber-300 h-[600px]">
-        <h1>hey</h1>
-      </div>
-
-      <div className="w-[60%] h-[600px] border-2 px-20">
+      <div className="w-[60%] h-[600px] border-2 px-20 m-auto">
         <h1 className="text-7xl mb-6">Create a Recipe</h1>
         <form onSubmit={handleSubmit(SubmitHandler)}>
           <input
             type="url"
             id="image"
-            className="border-b border-green-400 outline-none p-2 w-full mb-4"
+            className="border rounded border-green-400 outline-none p-2 w-full mb-4"
             {...register("image")}
             placeholder="Enter Image URL"
           />
           <input
             type="text"
             id="title"
-            className="border-b border-green-400 outline-none p-2 w-full mb-4"
+            className="border rounded border-green-400 outline-none p-2 w-full mb-4"
             {...register("title")}
             placeholder="Enter Recipe title"
           />
           <input
             type="text"
             id="chef name"
-            className="border-b border-green-400 outline-none p-2 w-full mb-4"
+            className="border rounded border-green-400 outline-none p-2 w-full mb-4"
             {...register("chef")}
             placeholder="Enter Chef Name title"
           />
           <select
-            className="block border-b outline-teal-50 mb-4 px-4 py-2 border"
+            className="block outline-teal-50 mb-4 px-4 py-2 border rounded"
             {...register("category")}
           >
             <option value="none">Select Category</option>
@@ -66,19 +63,19 @@ const Createrecipe = () => {
           </select>
 
           <textarea
-            className="border-b border-green-400 outline-none p-2 w-full"
+            className="border rounded border-green-400 outline-none p-2 w-full"
             {...register("desc")}
             placeholder=" Enter Description - Seperated by comma(,)"
           ></textarea>
 
           <textarea
-            className="border-b border-green-400 outline-none p-2 w-full"
+            className="border rounded border-green-400 outline-none p-2 w-full"
             {...register("ingredients")}
             placeholder=" Enter Ingredients - Seperated by comma(,)"
           ></textarea>
 
           <textarea
-            className="border-b border-green-400 outline-none p-2 w-full"
+            className="border rounded border-green-400 outline-none p-2 w-full"
             {...register("instructions")}
             placeholder="Enter Instructions - Seperated by comma(,)"
           ></textarea>
