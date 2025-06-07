@@ -66,41 +66,64 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex gap-10">
-        <div className="w-[100px] h-[100px] rounded-full bg-green-300">
-          <img
-            className="h-full w-full object-cover text-black"
-            src={Break}
-            alt="Breakfast image"
-          />
+      <div>
+        <div className="py-10 px-10 text-center mb-10">
+          <h1 className="text-xl">Browse Recipes by category!</h1>
+          <h1 className="text-8xl text-black">
+            Recipes <span className="text-green-500">Categories</span>
+          </h1>
         </div>
-        <div className="w-[100px] h-[100px]rounded-full  bg-green-300">
-          <img
-            className="h-full w-full object-cover text-black"
-            src={Lunch}
-            alt=""
-          />
-        </div>
-        <div className="w-[100px] h-[100px] rounded-full  bg-green-300">
-          <img
-            className="h-full w-full object-cover text-black"
-            src={Dinner}
-            alt=""
-          />
-        </div>
-        <div className="w-[100px] h-[100px] rounded-full  bg-green-300">
-          <img
-            className="h-full w-full object-cover text-black"
-            src={Drink}
-            alt=""
-          />
-        </div>
-        <div className="w-[100px] h-[100px] rounded-full  bg-green-300">
-          <img
-            className="h-full w-full object-cover text-black"
-            src={Dessert}
-            alt=""
-          />
+        <div className="flex justify-center items-center gap-8 py-10 px-10">
+          <div className="w-[200px] h-[200px]  rounded-full bg-green-200 overflow-hidden relative hover:scale-105 duration-75">
+            <img
+              className="absolute top-[40%] left-[50%] h-[100px] w-[100px] object-cover transform -translate-x-1/2 -translate-y-1/2"
+              src={Break}
+              alt="Breakfast image"
+            />
+            <h2 className="absolute top-[80%] left-[50%] transform -translate-x-1/2 -translate-y-1/2  text-green-800 font-bold text-xl">
+              Breakfast
+            </h2>
+          </div>
+          <div className="w-[200px] h-[200px] rounded-full bg-green-200 overflow-hidden relative hover:scale-105 duration-75">
+            <img
+              className="absolute top-[40%] left-[50%] h-[100px] w-[100px] object-cover transform -translate-x-1/2 -translate-y-1/2"
+              src={Lunch}
+              alt=""
+            />
+            <h2 className="absolute top-[80%] left-[50%] transform -translate-x-1/2 -translate-y-1/2  text-green-800 font-bold text-xl">
+              Lunch
+            </h2>
+          </div>
+          <div className="w-[200px] h-[200px] rounded-full bg-green-200 overflow-hidden relative hover:scale-105 duration-75">
+            <img
+              className="absolute top-[40%] left-[50%] h-[100px] w-[100px] object-cover transform -translate-x-1/2 -translate-y-1/2"
+              src={Dinner}
+              alt=""
+            />
+            <h2 className="absolute top-[80%] left-[50%] transform -translate-x-1/2 -translate-y-1/2  text-green-800 font-bold text-xl">
+              Dinner
+            </h2>
+          </div>
+          <div className="w-[200px] h-[200px]  rounded-full bg-green-200 overflow-hidden relative hover:scale-105 duration-75">
+            <img
+              className="absolute top-[40%] left-[50%] h-[100px] w-[100px] object-cover transform -translate-x-1/2 -translate-y-1/2"
+              src={Drink}
+              alt=""
+            />
+            <h2 className="absolute top-[80%] left-[50%] transform -translate-x-1/2 -translate-y-1/2  text-green-800 font-bold text-xl">
+              Drink
+            </h2>
+          </div>
+          <div className="w-[200px] h-[200px]  rounded-full bg-green-200 overflow-hidden relative hover:scale-105 duration-75">
+            <img
+              className="absolute top-[40%] left-[50%] h-[100px] w-[100px] object-cover transform -translate-x-1/2 -translate-y-1/2"
+              src={Dessert}
+              alt=""
+            />
+            <h2 className="absolute top-[80%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 text-green-800 font-bold text-xl">
+              Dessert
+            </h2>
+          </div>
         </div>
       </div>
     </>
