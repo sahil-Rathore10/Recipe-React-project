@@ -25,7 +25,7 @@ const Createrecipe = () => {
   };
 
   return (
-    <div className="flex py-10 px-10 max-w-screen h-screen ">
+    <div className="flex py-10 px-10 max-w-screen max-h-screen">
       <div className="w-[60%] h-[600px] border-2 px-20 m-auto">
         <h1 className="text-7xl mb-6">Create a Recipe</h1>
         <form onSubmit={handleSubmit(SubmitHandler)}>
