@@ -14,12 +14,13 @@ const Home = () => {
   };
   return (
     <>
-      <div className="flex gap-10 overflow-x-hidden py-10 px-10 max-w-screen h-screen bg-white text-green-500">
-        <div className="w-[60%]">
-          <h1 className="text-xl">Welcome to FlavorFiesta</h1>
-          <h1 className="font-[Open_Sans] tracking-wider text-black text-8xl mt-10 mb-10 pl-10">
+      <div className="flex flex-col-reverse md:flex-row gap-10 overflow-x-hidden py-10 px-4 sm:px-6 md:px-10 max-w-screen h-auto md:h-screen bg-white text-green-500">
+        {/* Left Side - Text & Button */}
+        <div className="w-full md:w-[60%] text-center md:text-left">
+          <h1 className="text-lg sm:text-xl">Welcome to FlavorFiesta</h1>
+          <h1 className="font-[Open_Sans] tracking-wider text-black text-4xl sm:text-6xl md:text-8xl mt-6 md:mt-10 mb-6 md:mb-10 md:pl-10">
             Expl
-            <span className="inline-block border-4 border-green-500 rounded-full w-14 h-14 overflow-hidden">
+            <span className="inline-block border-4 border-green-500 rounded-full w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 overflow-hidden">
               <img
                 className="w-full h-full object-cover"
                 src="https://media.istockphoto.com/id/901354116/photo/traditional-italian-pasta-alla-norma-with-eggplant-tomato-cheese-and-basil.jpg?s=612x612&w=0&k=20&c=SIZvs4HVWT0ICi9-nP8w9TUhj3U8EksujdLyNUVpCY8="
@@ -29,7 +30,7 @@ const Home = () => {
             re Easy
             <br />
             And Delici
-            <span className="inline-block border-3 border-orange-400 rounded-full w-14 h-14 overflow-hidden">
+            <span className="inline-block border-3 border-orange-400 rounded-full w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 overflow-hidden">
               <img
                 className="w-full h-full object-cover"
                 src="https://images.pexels.com/photos/30892987/pexels-photo-30892987/free-photo-of-delicious-pancakes-with-honey-and-strawberries.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -41,16 +42,21 @@ const Home = () => {
           </h1>
           <button
             onClick={redirectToRecipe}
-            className=" ml-20 py-2 px-4 bg-green-900 rounded-full text-white active:scale-95 hover:bg-green-800"
+            className="mt-4 md:mt-0 py-2 px-4 bg-green-900 rounded-full text-white active:scale-95 hover:bg-green-800 text-sm sm:text-base md:ml-20"
           >
-            All Recipes <i className="text-2xl ri-arrow-right-up-line"></i>
+            All Recipes{" "}
+            <i className="text-lg sm:text-xl md:text-2xl ri-arrow-right-up-line"></i>
           </button>
         </div>
 
-        <div className="w-[40%] p-4">
-          <div className="w-[100%] h-[65vh] mt-4 rounded-full overflow-hidden">
+        {/* Right Side - Video */}
+        <div className="w-full md:w-[40%] p-2 sm:p-4 flex justify-center md:justify-end">
+          <div
+            className="w-full sm:w-full md:w-full lg:w-[100%] h-[40vh] sm:h-[50vh] md:h-[65vh] mt-4 
+                  rounded-none md:rounded-none lg:rounded-full overflow-hidden"
+          >
             <video
-              className="w-full h-full object-cover rounded-full"
+              className="w-full h-full object-cover"
               autoPlay
               muted
               loop
@@ -66,61 +72,74 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Category section.... */}
       <div>
-        <div className="py-10 px-10 text-center mb-10">
-          <h1 className="text-xl">Browse Recipes by category!</h1>
-          <h1 className="text-8xl text-black">
+        <div className="py-10 px-4 sm:px-6 md:px-10 text-center mb-10">
+          <h1 className="text-xl sm:text-2xl md:text-3xl">
+            Browse Recipes by category!
+          </h1>
+          <h1 className="text-4xl sm:text-6xl md:text-8xl text-black">
             Recipes <span className="text-green-500">Categories</span>
           </h1>
         </div>
-        <div className="flex justify-center items-center gap-8 py-10 px-10">
-          <div className="w-[200px] h-[200px]  rounded-full bg-green-200 overflow-hidden relative hover:scale-105 duration-75">
+
+        <div className="flex justify-center items-center gap-8 py-10 px-4 sm:px-6 md:px-10 flex-wrap md:flex-nowrap">
+          {/* Card 1 */}
+          <div className="group w-[150px] sm:w-[180px] md:w-[200px] h-[150px] sm:h-[180px] md:h-[200px] rounded-full bg-green-200 overflow-hidden relative hover:bg-green-300 transform hover:scale-110 transition duration-300">
             <img
-              className="absolute top-[40%] left-[50%] h-[100px] w-[100px] object-cover transform -translate-x-1/2 -translate-y-1/2"
+              className="absolute top-[40%] left-[50%] h-[60px] sm:h-[80px] md:h-[100px] w-[60px] sm:w-[80px] md:w-[100px] object-cover transform -translate-x-1/2 -translate-y-1/2"
               src={Break}
               alt="Breakfast image"
             />
-            <h2 className="absolute top-[80%] left-[50%] transform -translate-x-1/2 -translate-y-1/2  text-green-800 font-bold text-xl">
+            <h2 className="absolute top-[80%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 text-green-800 font-bold text-sm sm:text-lg md:text-xl transition duration-300 group-hover:text-green-600">
               Breakfast
             </h2>
           </div>
-          <div className="w-[200px] h-[200px] rounded-full bg-green-200 overflow-hidden relative hover:scale-105 duration-75">
+
+          {/* Card 2 */}
+          <div className="group w-[150px] sm:w-[180px] md:w-[200px] h-[150px] sm:h-[180px] md:h-[200px] rounded-full bg-green-200 overflow-hidden relative hover:bg-green-300 transform hover:scale-110 transition duration-300">
             <img
-              className="absolute top-[40%] left-[50%] h-[100px] w-[100px] object-cover transform -translate-x-1/2 -translate-y-1/2"
+              className="absolute top-[40%] left-[50%] h-[60px] sm:h-[80px] md:h-[100px] w-[60px] sm:w-[80px] md:w-[100px] object-cover transform -translate-x-1/2 -translate-y-1/2"
               src={Lunch}
-              alt=""
+              alt="Lunch image"
             />
-            <h2 className="absolute top-[80%] left-[50%] transform -translate-x-1/2 -translate-y-1/2  text-green-800 font-bold text-xl">
+            <h2 className="absolute top-[80%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 text-green-800 font-bold text-sm sm:text-lg md:text-xl transition duration-300 group-hover:text-green-600">
               Lunch
             </h2>
           </div>
-          <div className="w-[200px] h-[200px] rounded-full bg-green-200 overflow-hidden relative hover:scale-105 duration-75">
+
+          {/* Card 3 */}
+          <div className="group w-[150px] sm:w-[180px] md:w-[200px] h-[150px] sm:h-[180px] md:h-[200px] rounded-full bg-green-200 overflow-hidden relative hover:bg-green-300 transform hover:scale-110 transition duration-300">
             <img
-              className="absolute top-[40%] left-[50%] h-[100px] w-[100px] object-cover transform -translate-x-1/2 -translate-y-1/2"
+              className="absolute top-[40%] left-[50%] h-[60px] sm:h-[80px] md:h-[100px] w-[60px] sm:w-[80px] md:w-[100px] object-cover transform -translate-x-1/2 -translate-y-1/2"
               src={Dinner}
-              alt=""
+              alt="Dinner image"
             />
-            <h2 className="absolute top-[80%] left-[50%] transform -translate-x-1/2 -translate-y-1/2  text-green-800 font-bold text-xl">
+            <h2 className="absolute top-[80%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 text-green-800 font-bold text-sm sm:text-lg md:text-xl transition duration-300 group-hover:text-green-600">
               Dinner
             </h2>
           </div>
-          <div className="w-[200px] h-[200px]  rounded-full bg-green-200 overflow-hidden relative hover:scale-105 duration-75">
+
+          {/* Card 4 */}
+          <div className="group w-[150px] sm:w-[180px] md:w-[200px] h-[150px] sm:h-[180px] md:h-[200px] rounded-full bg-green-200 overflow-hidden relative hover:bg-green-300 transform hover:scale-110 transition duration-300">
             <img
-              className="absolute top-[40%] left-[50%] h-[100px] w-[100px] object-cover transform -translate-x-1/2 -translate-y-1/2"
+              className="absolute top-[40%] left-[50%] h-[60px] sm:h-[80px] md:h-[100px] w-[60px] sm:w-[80px] md:w-[100px] object-cover transform -translate-x-1/2 -translate-y-1/2"
               src={Drink}
-              alt=""
+              alt="Drink image"
             />
-            <h2 className="absolute top-[80%] left-[50%] transform -translate-x-1/2 -translate-y-1/2  text-green-800 font-bold text-xl">
+            <h2 className="absolute top-[80%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 text-green-800 font-bold text-sm sm:text-lg md:text-xl transition duration-300 group-hover:text-green-600">
               Drink
             </h2>
           </div>
-          <div className="w-[200px] h-[200px]  rounded-full bg-green-200 overflow-hidden relative hover:scale-105 duration-75">
+
+          {/* Card 5 */}
+          <div className="group w-[150px] sm:w-[180px] md:w-[200px] h-[150px] sm:h-[180px] md:h-[200px] rounded-full bg-green-200 overflow-hidden relative hover:bg-green-300 transform hover:scale-110 transition duration-300">
             <img
-              className="absolute top-[40%] left-[50%] h-[100px] w-[100px] object-cover transform -translate-x-1/2 -translate-y-1/2"
+              className="absolute top-[40%] left-[50%] h-[60px] sm:h-[80px] md:h-[100px] w-[60px] sm:w-[80px] md:w-[100px] object-cover transform -translate-x-1/2 -translate-y-1/2"
               src={Dessert}
-              alt=""
+              alt="Dessert image"
             />
-            <h2 className="absolute top-[80%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 text-green-800 font-bold text-xl">
+            <h2 className="absolute top-[80%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 text-green-800 font-bold text-sm sm:text-lg md:text-xl transition duration-300 group-hover:text-green-600">
               Dessert
             </h2>
           </div>
