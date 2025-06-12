@@ -22,7 +22,7 @@ const Createrecipe = () => {
   };
 
   return (
-    <div className="flex justify-center items-center py-10 px-4 min-h-screen bg-gray-50">
+    <div className="flex justify-center items-center py-10 px-4 min-h-screen">
       <div className="w-full max-w-2xl border-2 border-gray-300 rounded-lg shadow-md p-6 bg-white">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center mb-6 font-bold text-green-600 font-[Open_Sans]">
           Create a Recipe

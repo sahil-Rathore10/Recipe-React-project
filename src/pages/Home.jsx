@@ -5,6 +5,9 @@ import Lunch from "../assets/lunch.png";
 import Dinner from "../assets/dinner.png";
 import Drink from "../assets/drink.png";
 import Dessert from "../assets/dessert.png";
+import Contact from "./Contact";
+import About from "./About";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -145,6 +148,9 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <About />
+      <Contact />
     </>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { recipecontext } from "../context/RecipeContext";
 import RecipeCard from "../components/RecipeCard";
+import Footer from "../components/Footer";
 
 const Recipes = () => {
   const { data } = useContext(recipecontext);
