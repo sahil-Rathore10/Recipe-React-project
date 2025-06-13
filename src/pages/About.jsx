@@ -9,7 +9,7 @@ const About = () => {
     navigate("/contact");
   };
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen  p-8">
+    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen p-8 gap-8">
       {/* Left Side - Text Content */}
       <div className="md:w-1/2 space-y-6">
         <h2 className="text-4xl font-bold text-green-600">

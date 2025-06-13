@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { FiMenu, FiX } from "react-icons/fi"; // using react-icons for hamburger
+import { FiMenu, FiX } from "react-icons/fi";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,12 +8,12 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <div className="flex justify-between items-center p-6 rounded-full border-2 relative">
+    <div className="flex justify-between items-center p-6 rounded-full border-2 relative bg-white">
       <h1 className="text-2xl font-[Helvetica] font-bold text-green-600">
         FlavorFiesta
       </h1>
 
-      {/* Hamburger for small & medium screens */}
+      {/* Hamburger for small screens only */}
       <div
         className="md:hidden cursor-pointer text-3xl text-green-600"
         onClick={toggleMenu}
@@ -21,13 +21,15 @@ const Navbar = () => {
         {isOpen ? <FiX /> : <FiMenu />}
       </div>
 
-      {/* Nav Links for large screens */}
-      <div className="hidden md:flex justify-between gap-16">
+      {/* Nav Links for medium and large screens */}
+      <div className="hidden md:flex justify-between gap-8 md:gap-4 lg:gap-16 items-center">
         {["/", "/recipes", "/about", "/contact", "/fav"].map((path, idx) => (
           <NavLink
             key={idx}
             className={({ isActive }) =>
-              isActive ? "text-lg text-green-300" : "text-green-500 text-lg"
+              isActive
+                ? "text-base md:text-[15px] lg:text-lg text-green-300"
+                : "text-green-500 text-base md:text-[15px] lg:text-lg hover:text-green-600 transition"
             }
             to={path}
           >
@@ -41,14 +43,14 @@ const Navbar = () => {
         to="/create-recipe"
         className={({ isActive }) =>
           isActive
-            ? "text-green-300 border py-2 px-4 rounded hidden md:block"
-            : "text-green-500 border-green-500 border py-2 px-4 rounded hidden md:block"
+            ? "text-green-300 border py-2 px-4 rounded hidden md:block text-sm md:text-[14px] lg:text-base"
+            : "text-green-500 border-green-500 border py-2 px-4 rounded hidden md:block text-sm md:text-[14px] lg:text-base hover:bg-green-500 hover:text-white transition"
         }
       >
         Create Recipe
       </NavLink>
 
-      {/* Dropdown menu for small/medium screens */}
+      {/* Dropdown menu for small screens */}
       {isOpen && (
         <div className="absolute top-[100%] left-0 w-full bg-white shadow-md flex flex-col items-center py-4 md:hidden z-10">
           {["/", "/recipes", "/about", "/contact", "/fav"].map((path, idx) => (
@@ -57,7 +59,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-lg text-green-300 my-2"
-                  : "text-green-500 text-lg my-2"
+                  : "text-green-500 text-lg my-2 hover:text-green-600 transition"
               }
               to={path}
               onClick={() => setIsOpen(false)}
@@ -70,7 +72,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive
                 ? "text-green-300 border py-2 px-4 rounded mt-2"
-                : "text-green-500 border-green-500 border py-2 px-4 rounded mt-2"
+                : "text-green-500 border-green-500 border py-2 px-4 rounded mt-2 hover:bg-green-500 hover:text-white transition"
             }
             onClick={() => setIsOpen(false)}
           >

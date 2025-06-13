@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { recipecontext } from "../context/RecipeContext";
 import RecipeCard from "../components/RecipeCard";
-import Footer from "../components/Footer";
 
 const Recipes = () => {
   const { data } = useContext(recipecontext);
@@ -11,11 +10,12 @@ const Recipes = () => {
   ));
 
   return (
-    <div className="flex flex-wrap px-10 py-10 text-black">
+    <div className="grid gap-6 px-10 py-10 text-black  grid-cols-1  md:grid-cols-3 lg:grid-cols-4">
+      {" "}
       {data.length > 0 ? (
         renderrecipes
       ) : (
-        <div className="w-full flex justify-center items-center h-[50vh]">
+        <div className="w-full flex justify-center items-center h-[50vh] col-span-full">
           <p className="text-2xl font-semibold text-gray-400">
             No recipes found!
           </p>
@@ -24,5 +24,4 @@ const Recipes = () => {
     </div>
   );
 };
-
 export default Recipes;

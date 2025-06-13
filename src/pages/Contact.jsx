@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { FaFacebookF, FaInstagram, FaYoutube, FaTwitter } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Contact = () => {
   const form = useRef();
@@ -18,7 +19,8 @@ const Contact = () => {
       .then(
         (result) => {
           console.log(result.text);
-          alert("Message sent successfully!");
+          toast.success("Your message has been sent!");
+          // alert("Message sent successfully!");
           form.current.reset(); // Reset form after submission
         },
         (error) => {
