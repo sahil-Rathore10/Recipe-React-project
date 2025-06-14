@@ -9,7 +9,8 @@ const RecipeContext = (props) => {
       category: "breakfast",
       chef: "Emily Johnson",
       desc: "A healthy and quick breakfast option to start your day.",
-      image: "https://cdn.dummyjson.com/recipe-images/1.webp",
+      image:
+        "https://img.freepik.com/free-photo/oatmeal-porridge-with-raspberries-blueberries-almonds-bowl-wooden-table_123827-32361.jpg?ga=GA1.1.761869688.1749317979&semt=ais_hybrid&w=740",
       ingredients: "Oats Milk Honey Banana",
       instructions: "Mix oats with milk, add honey and top with banana slices.",
       title: "Oatmeal Delight",
@@ -19,7 +20,8 @@ const RecipeContext = (props) => {
       category: "breakfast",
       chef: "Liam Smith",
       desc: "Crispy and golden brown pancakes with a touch of vanilla.",
-      image: "https://cdn.dummyjson.com/recipe-images/2.webp",
+      image:
+        "https://shortgirltallorder.com/wp-content/uploads/2020/10/Chai-Vanilla-Pancakes-1-720x960.jpg",
       ingredients: "Flour Eggs Milk Sugar Vanilla",
       instructions:
         "Mix ingredients, cook on pan till golden, serve with syrup.",
@@ -30,7 +32,8 @@ const RecipeContext = (props) => {
       category: "lunch",
       chef: "Olivia Williams",
       desc: "A hearty Italian pizza loaded with cheese and veggies.",
-      image: "https://cdn.dummyjson.com/recipe-images/3.webp",
+      image:
+        "https://www.orchidsandsweettea.com/wp-content/uploads/2019/05/Veggie-Pizza-2-of-5-e1691215701129.jpg",
       ingredients: "Pizza base Tomato sauce Cheese Veggies",
       instructions: "Spread sauce on base add toppings bake till cheese melts.",
       title: "Veggie Pizza",
@@ -40,7 +43,8 @@ const RecipeContext = (props) => {
       category: "lunch",
       chef: "Noah Brown",
       desc: "Spicy and flavorful chicken curry, perfect for lunch.",
-      image: "https://cdn.dummyjson.com/recipe-images/4.webp",
+      image:
+        "https://www.foodandwine.com/thmb/f4uf4WXHz-waXLB_oqG-U1p4Y7A=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/spicy-chicken-curry-FT-RECIPE0321-58f84fdf7b484e7f86894203eb7834e7.jpg",
       ingredients: "Chicken Onion Tomato Spices",
       instructions: "Cook chicken with onions tomatoes and spices till done.",
       title: "Spicy Chicken Curry",
@@ -50,7 +54,8 @@ const RecipeContext = (props) => {
       category: "dinner",
       chef: "Ava Davis",
       desc: "A light and refreshing grilled salmon recipe.",
-      image: "https://cdn.dummyjson.com/recipe-images/5.webp",
+      image:
+        "https://www.licious.in/blog/wp-content/uploads/2020/12/Penne-Alfredo-600x600.jpg",
       ingredients: "Salmon Lemon Olive oil Herbs",
       instructions: "Marinate salmon grill till cooked serve with lemon.",
       title: "Grilled Salmon",
@@ -60,7 +65,8 @@ const RecipeContext = (props) => {
       category: "dinner",
       chef: "William Miller",
       desc: "Creamy and delicious pasta Alfredo perfect for dinner.",
-      image: "https://cdn.dummyjson.com/recipe-images/6.webp",
+      image:
+        "https://www.licious.in/blog/wp-content/uploads/2020/12/Penne-Alfredo-600x600.jpg",
       ingredients: "Pasta Cream Garlic Parmesan",
       instructions: "Cookpasta prepare Alfredo sauce mix and serve hot.",
       title: "Pasta Alfredo",
@@ -80,7 +86,8 @@ const RecipeContext = (props) => {
       category: "dessert",
       chef: "James Moore",
       desc: "A classic vanilla ice cream treat for dessert lovers.",
-      image: "https://cdn.dummyjson.com/recipe-images/8.webp",
+      image:
+        "https://www.theroastedroot.net/wp-content/uploads/2023/06/dairy-free-vanilla-ice-cream-8-600x900.jpg",
       ingredients: "Milk Cream Sugar Vanilla extract",
       instructions:
         "Mix ingredients churn in ice cream maker freeze and enjoy.",
@@ -91,7 +98,8 @@ const RecipeContext = (props) => {
       category: "drink",
       chef: "Isabella Taylor",
       desc: "A refreshing glass of homemade lemonade.",
-      image: "https://cdn.dummyjson.com/recipe-images/9.webp",
+      image:
+        "https://sweetsandthankyou.com/wp-content/uploads/2024/05/Lemonade19-3.jpg",
       ingredients: "Lemon Sugar Water Mint",
       instructions: "Squeeze lemons mix with water and sugar add mint leaves.",
       title: "Classic Lemonade",
@@ -101,7 +109,8 @@ const RecipeContext = (props) => {
       category: "drink",
       chef: "Benjamin Anderson",
       desc: "A creamy and delightful mango milkshake.",
-      image: "https://cdn.dummyjson.com/recipe-images/10.webp",
+      image:
+        "https://tastyoven.com/wp-content/uploads/2022/06/mango-shake-3-720x960.jpeg",
       ingredients: "Mango Milk Sugar Ice cubes",
       instructions: "Blend all ingredients until smooth serve chilled.",
       title: "Mango Milkshake",
