@@ -55,7 +55,7 @@ const RecipeContext = (props) => {
       chef: "Ava Davis",
       desc: "A light and refreshing grilled salmon recipe.",
       image:
-        "https://www.licious.in/blog/wp-content/uploads/2020/12/Penne-Alfredo-600x600.jpg",
+        "https://www.feastingathome.com/wp-content/uploads/2022/08/Grilled-Salmon-10-1024x1536.jpg",
       ingredients: "Salmon Lemon Olive oil Herbs",
       instructions: "Marinate salmon grill till cooked serve with lemon.",
       title: "Grilled Salmon",
@@ -76,7 +76,8 @@ const RecipeContext = (props) => {
       category: "dessert",
       chef: "Sophia Wilson",
       desc: "Rich and creamy chocolate cake for sweet cravings.",
-      image: "https://cdn.dummyjson.com/recipe-images/7.webp",
+      image:
+        "https://sallysbakingaddiction.com/wp-content/uploads/2013/04/triple-chocolate-cake-4.jpg",
       ingredients: "Flour Cocoa Sugar Eggs Butter",
       instructions: "Prepare batter bake in oven cool and serve.",
       title: "Chocolate Cake",
