@@ -60,25 +60,33 @@ const Contact = () => {
           {/* Social Media Icons */}
           <div className="flex space-x-4 mt-4">
             <a
-              href="#"
+              href="https://www.facebook.com/yourprofile"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-green-400 text-gray-100 hover:bg-green-500 hover:text-white rounded-full p-3 transform hover:scale-110 transition duration-300"
             >
               <FaFacebookF />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/yourprofile"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-green-400 text-gray-100 hover:bg-green-500 hover:text-white rounded-full p-3 transform hover:scale-110 transition duration-300"
             >
               <FaInstagram />
             </a>
             <a
-              href="#"
+              href="https://www.youtube.com/yourchannel"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-green-400 text-gray-100 hover:bg-green-500 hover:text-white rounded-full p-3 transform hover:scale-110 transition duration-300"
             >
               <FaYoutube />
             </a>
             <a
-              href="#"
+              href="https://twitter.com/yourprofile"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-green-400 text-gray-100 hover:bg-green-500 hover:text-white rounded-full p-3 transform hover:scale-110 transition duration-300"
             >
               <FaTwitter />
