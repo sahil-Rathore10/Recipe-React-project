@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { recipecontext } from "../context/RecipeContext";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
@@ -13,7 +12,8 @@ const Singlerecipe = () => {
   const navigate = useNavigate();
   const params = useParams();
   const recipe = data.find((recipe) => params.id == recipe.id);
-  const { register, handleSubmit, reset } = useForm({
+
+  const { register, handleSubmit } = useForm({
     defaultValues: {
       title: recipe?.title,
       chef: recipe?.chef,
@@ -25,68 +25,61 @@ const Singlerecipe = () => {
     },
   });
 
-  const UpdateHandler = (recipe) => {
-    const index = data.findIndex((recipe) => params.id == recipe.id);
-    const copydata = [...data];
-    copydata[index] = { ...copydata[index], ...recipe };
-    localStorage.setItem("recipes", JSON.stringify(copydata));
-
-    setData(copydata);
-
+  const UpdateHandler = (recipeData) => {
+    const index = data.findIndex((r) => params.id == r.id);
+    const updatedData = [...data];
+    updatedData[index] = { ...updatedData[index], ...recipeData };
+    setData(updatedData);
+    localStorage.setItem("recipes", JSON.stringify(updatedData));
     toast.success("Recipe Updated!");
   };
 
   const DeleteHandler = () => {
-    const filterdata = data.filter((r) => r.id != params.id);
-    setData(filterdata);
-    localStorage.setItem("recipes", JSON.stringify(filterdata));
+    const filteredData = data.filter((r) => r.id != params.id);
+    setData(filteredData);
+    localStorage.setItem("recipes", JSON.stringify(filteredData));
 
-    // Remove from favorites
-    const filterfav = favorite.filter((f) => f.id != params.id);
-    setFavorite(filterfav);
-    localStorage.setItem("fav", JSON.stringify(filterfav));
-    toast.success("Recipe Delete!");
+    const filteredFav = favorite.filter((f) => f.id != params.id);
+    setFavorite(filteredFav);
+    localStorage.setItem("fav", JSON.stringify(filteredFav));
+
+    toast.success("Recipe Deleted!");
     navigate("/recipes");
   };
 
   const FavHandler = () => {
-    const copyfav = [...favorite];
-    copyfav.push(recipe);
-    setFavorite(copyfav);
-    localStorage.setItem("fav", JSON.stringify(copyfav));
+    const updatedFav = [...favorite, recipe];
+    setFavorite(updatedFav);
+    localStorage.setItem("fav", JSON.stringify(updatedFav));
   };
 
   const UnFavHandler = () => {
-    const filterfav = favorite.filter((f) => f.id != recipe?.id);
-    setFavorite(filterfav);
-    localStorage.setItem("fav", JSON.stringify(filterfav));
+    const updatedFav = favorite.filter((f) => f.id != recipe?.id);
+    setFavorite(updatedFav);
+    localStorage.setItem("fav", JSON.stringify(updatedFav));
   };
 
-  // useEffect(() => {
-  //   console.log("Singlerecipe.jsx Mounted");
-
-  //   return () => {
-  //     console.log("Singlerecipe.jsx Mounted");
-  //   };
-  // }, []);
-
   return recipe ? (
-    <div className="w-full flex p-6">
-      <div className="relative left w-1/2 p-10 flex-col justify-items-center">
+    <div className="w-full flex flex-col md:flex-row gap-6 p-4 md:p-10">
+      {/* Left Side */}
+      <div className="relative md:w-1/2 w-full flex flex-col items-start">
         {favorite.find((f) => f.id == recipe?.id) ? (
           <i
             onClick={UnFavHandler}
-            className="absolute right-[5%] text-3xl text-yellow-400 ri-star-fill"
+            className="absolute right-4 text-3xl text-yellow-400 ri-star-fill cursor-pointer"
           ></i>
         ) : (
           <i
             onClick={FavHandler}
-            className="absolute right-[5%] text-3xl text-yellow-400 ri-star-line"
+            className="absolute right-4 text-3xl text-yellow-400 ri-star-line cursor-pointer"
           ></i>
         )}
-        <h1 className="text-4xl mb-2 font-bold text-black">{recipe.title}</h1>
+
+        <h1 className="text-3xl sm:text-4xl mb-3 font-bold text-black">
+          {recipe.title}
+        </h1>
         <img
-          className="h-[30vh] w-[20vw] mb-2 rounded"
+          className="h-auto w-full max-h-[30vh] object-cover rounded mb-4"
           src={recipe.image}
           alt=""
         />
@@ -98,135 +91,133 @@ const Singlerecipe = () => {
           <span className="text-black font-bold">Category: </span>
           {recipe.category}
         </h2>
-        <p className="text-black mb-2 tracking-tight">
-          <span className="text-black font-bold">Description:</span>{" "}
-          {recipe.desc}
+        <p className="text-black mb-2">
+          <span className="font-bold">Description:</span> {recipe.desc}
         </p>
-        <p className="text-black mb-2 tracking-tight">
-          <span className="text-black font-bold">Ingredients:</span>{" "}
-          {recipe.ingredients}
+        <p className="text-black mb-2">
+          <span className="font-bold">Ingredients:</span> {recipe.ingredients}
         </p>
-        <p className="text-black mb-2 tracking-tight">
-          <span className="text-black font-bold">Instructions:</span>{" "}
-          {recipe.instructions}
+        <p className="text-black mb-2">
+          <span className="font-bold">Instructions:</span> {recipe.instructions}
         </p>
       </div>
-      <div className="right border-2 text-black w-1/2 p-10">
-        <form onSubmit={handleSubmit(UpdateHandler)}>
-          <label
-            htmlFor="image"
-            className="block font-semibold mb-1 text-gray-700"
-          >
-            Image URL
-          </label>
-          <input
-            type="url"
-            id="image"
-            className="border-b border-green-400 outline-none p-2 w-full mb-2"
-            {...register("image")}
-            placeholder="Enter Image URL"
-          />
 
-          <label
-            htmlFor="title"
-            className="block font-semibold mb-1 text-gray-700"
-          >
-            Recipe Title
-          </label>
-          <input
-            type="text"
-            id="title"
-            className="border-b border-green-400 outline-none p-2 w-full mb-2"
-            {...register("title")}
-            placeholder="Enter Recipe Title"
-          />
+      {/* Right Side (Form) */}
+      <div className="w-full md:w-1/2 border-2 rounded-lg p-4 md:p-8 text-black bg-white shadow-md">
+        <form onSubmit={handleSubmit(UpdateHandler)} className="space-y-4">
+          <div>
+            <label htmlFor="image" className="block font-semibold mb-1">
+              Image URL
+            </label>
+            <input
+              type="url"
+              id="image"
+              {...register("image")}
+              className="w-full border-b border-green-400 outline-none p-2"
+              placeholder="Enter Image URL"
+            />
+          </div>
 
-          <label
-            htmlFor="chef"
-            className="block font-semibold mb-1 text-gray-700"
-          >
-            Chef Name
-          </label>
-          <input
-            type="text"
-            id="chef"
-            className="border-b border-green-400 outline-none p-2 w-full mb-2"
-            {...register("chef")}
-            placeholder="Enter Chef Name"
-          />
+          <div>
+            <label htmlFor="title" className="block font-semibold mb-1">
+              Recipe Title
+            </label>
+            <input
+              type="text"
+              id="title"
+              {...register("title")}
+              className="w-full border-b border-green-400 outline-none p-2"
+              placeholder="Enter Recipe Title"
+            />
+          </div>
 
-          <label
-            htmlFor="category"
-            className="block font-semibold mb-1 text-gray-700"
-          >
-            Category
-          </label>
-          <select
-            id="category"
-            className="block border-b outline-teal-50 mb-2 px-4 py-2 border w-full"
-            {...register("category")}
-          >
-            <option value="none">Select Category</option>
-            <option value="breakfast">Breakfast</option>
-            <option value="lunch">Lunch</option>
-            <option value="dinner">Dinner</option>
-            <option value="drink">Drink</option>
-            <option value="dessert">Dessert</option>
-          </select>
+          <div>
+            <label htmlFor="chef" className="block font-semibold mb-1">
+              Chef Name
+            </label>
+            <input
+              type="text"
+              id="chef"
+              {...register("chef")}
+              className="w-full border-b border-green-400 outline-none p-2"
+              placeholder="Enter Chef Name"
+            />
+          </div>
 
-          <label
-            htmlFor="desc"
-            className="block font-semibold mb-1 text-gray-700"
-          >
-            Description
-          </label>
-          <textarea
-            id="desc"
-            className="border-b border-green-400 outline-none p-2 w-full"
-            {...register("desc")}
-            placeholder="Enter Description - Separated by comma(,)"
-          ></textarea>
+          <div>
+            <label htmlFor="category" className="block font-semibold mb-1">
+              Category
+            </label>
+            <select
+              id="category"
+              {...register("category")}
+              className="w-full border-b border-green-400 outline-none p-2"
+            >
+              <option value="none">Select Category</option>
+              <option value="breakfast">Breakfast</option>
+              <option value="lunch">Lunch</option>
+              <option value="dinner">Dinner</option>
+              <option value="drink">Drink</option>
+              <option value="dessert">Dessert</option>
+            </select>
+          </div>
 
-          <label
-            htmlFor="Ingr"
-            className="block font-semibold mb-1 text-gray-700"
-          >
-            Ingredients
-          </label>
-          <textarea
-            id="Ingr"
-            className="border-b border-green-400 outline-none p-2 w-full"
-            {...register("ingredients")}
-            placeholder="Enter Ingredients - Separated by comma(,)"
-          ></textarea>
+          <div>
+            <label htmlFor="desc" className="block font-semibold mb-1">
+              Description
+            </label>
+            <textarea
+              id="desc"
+              {...register("desc")}
+              className="w-full border-b border-green-400 outline-none p-2"
+              placeholder="Enter Description (comma separated)"
+            />
+          </div>
 
-          <label
-            htmlFor="Inst"
-            className="block font-semibold mb-1 text-gray-700"
-          >
-            Instructions
-          </label>
-          <textarea
-            id="Inst"
-            className="border-b border-green-400 outline-none p-2 w-full"
-            {...register("instructions")}
-            placeholder="Enter Instructions - Separated by comma(,)"
-          ></textarea>
+          <div>
+            <label htmlFor="ingredients" className="block font-semibold mb-1">
+              Ingredients
+            </label>
+            <textarea
+              id="ingredients"
+              {...register("ingredients")}
+              className="w-full border-b border-green-400 outline-none p-2"
+              placeholder="Enter Ingredients (comma separated)"
+            />
+          </div>
 
-          <button className="mt-2 block px-4 py-2 bg-blue-700 rounded text-white active:scale-95">
-            Update Recipe
-          </button>
-          <button
-            onClick={DeleteHandler}
-            className="mt-2 block px-4 py-2 bg-red-700 rounded text-white active:scale-95"
-          >
-            Delete Recipe
-          </button>
+          <div>
+            <label htmlFor="instructions" className="block font-semibold mb-1">
+              Instructions
+            </label>
+            <textarea
+              id="instructions"
+              {...register("instructions")}
+              className="w-full border-b border-green-400 outline-none p-2"
+              placeholder="Enter Instructions (comma separated)"
+            />
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 mt-4">
+            <button
+              type="submit"
+              className="w-full sm:w-auto bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 transition active:scale-95"
+            >
+              Update Recipe
+            </button>
+            <button
+              type="button"
+              onClick={DeleteHandler}
+              className="w-full sm:w-auto bg-red-700 text-white px-4 py-2 rounded hover:bg-red-800 transition active:scale-95"
+            >
+              Delete Recipe
+            </button>
+          </div>
         </form>
       </div>
     </div>
   ) : (
-    "Loading..."
+    <p className="text-center text-lg mt-10">Loading...</p>
   );
 };
 
