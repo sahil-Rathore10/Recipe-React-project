@@ -77,7 +77,7 @@ const RecipeContext = (props) => {
       chef: "Sophia Wilson",
       desc: "Rich and creamy chocolate cake for sweet cravings.",
       image:
-        "https://sallysbakingaddiction.com/wp-content/uploads/2013/04/triple-chocolate-cake-4.jpg",
+        "https://www.hersheyland.com/content/dam/hersheyland/en-us/recipes/recipe-images/2-hersheys-perfectly-chocolate-chocolate-cake-recipe-hero.jpg?im=Resize=(1920)",
       ingredients: "Flour Cocoa Sugar Eggs Butter",
       instructions: "Prepare batter bake in oven cool and serve.",
       title: "Chocolate Cake",
@@ -111,7 +111,7 @@ const RecipeContext = (props) => {
       chef: "Benjamin Anderson",
       desc: "A creamy and delightful mango milkshake.",
       image:
-        "https://tastyoven.com/wp-content/uploads/2022/06/mango-shake-3-720x960.jpeg",
+        "https://tastyoven.com/wp-content/uploads/2022/06/mango-shake-3.jpeg",
       ingredients: "Mango Milk Sugar Ice cubes",
       instructions: "Blend all ingredients until smooth serve chilled.",
       title: "Mango Milkshake",
