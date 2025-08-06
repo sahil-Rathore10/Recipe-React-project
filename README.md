@@ -15,7 +15,7 @@ Whether you're a foodie or a developer, FlavorFiesta offers a seamless and inter
 
 ## 📸 Preview
 
-![Website Preview](./assets/preview.png)
+![Website Preview](https://github.com/sahil-Rathore10/Recipe-React-project/blob/main/src/assets/preview.png)
 
 ---
 
