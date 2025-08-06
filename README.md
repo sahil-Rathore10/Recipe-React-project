@@ -1,12 +1,82 @@
-# React + Vite
+# 🍽️ FlavorFiesta - Recipe Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **FlavorFiesta**, a beautifully designed recipe website where users can explore mouthwatering dishes with ease. Built with **ReactJS**, **Tailwind CSS**, and **Context API**, this project is focused on responsiveness, visual appeal, and smooth user interaction.
 
-Currently, two official plugins are available:
+🛠️ This is a **fully functional CRUD web application** where users can:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✅ **Create**, **Read**, **Update**, and **Delete** recipes.
+- ⭐ **Mark recipes as favorite** for quick access.
 
-## Expanding the ESLint configuration
+Whether you're a foodie or a developer, FlavorFiesta offers a seamless and interactive experience to manage and enjoy recipes.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+> ✅ **Live Preview**: [https://flavorfiesta-recipe-site.vercel.app/](https://flavorfiesta-recipe-site.vercel.app/)
+
+---
+
+## 📸 Preview
+
+![Website Preview](./assets/preview.png)
+
+---
+
+## 🚀 Tech Stack
+
+- **HTML**
+- **Tailwind CSS**
+- **JavaScript**
+- **ReactJS**
+- **Context API**
+
+---
+
+## 📂 Folder Structure
+
+FlavorFiesta/
+│
+├── public/ # Static assets
+│ └── ...
+├── src/
+│ ├── assets/ # Images and other assets
+│ ├── components/ # Reusable components
+│ ├── context/ # Context API setup
+│ ├── pages/ # Page-level components
+│ ├── Routes/ #Route for Navigation
+│ ├── App.jsx
+│ ├── index.js
+│ └── ...
+├── .gitignore
+├── package.json
+├── tailwind.config.js
+├── postcss.config.js
+├── README.md
+└── vite.config.js # (if using Vite)
+
+---
+
+## 🛠️ How to Clone and Run Locally
+
+Follow these steps to clone and run the project on your local machine:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/flavorfiesta.git
+
+# 2. Navigate into the project directory
+cd flavorfiesta
+
+# 3. Install dependencies
+npm install
+
+# 4. Run the development server
+npm run dev
+
+
+🤝 Contributions
+Contributions are always welcome! Feel free to fork this repo and create a pull request.
+
+📄 License
+This project is open-source and free to use for learning and personal projects.
+
+🙌 Acknowledgment
+Thanks to Sheryians Coding School for guidance and community support during development.
+```
